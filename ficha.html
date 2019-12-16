@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/2ae28d83d1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<style>
+	body {
+		font-family: 'Girassol', cursive;
+		vertical-align: middle;
+	}
+	label, #generation {
+		line-height: 36px;
+	}
+
+	.att-name {
+		margin: auto;
+		text-align: center;
+	}
+
+	.points:hover {
+		color: red;
+	}
+
+	.info {
+		display: none;
+		text-align: center;
+		padding-top: 5px;
+		color: red;
+	}
+</style>
+<form>
+	
+<div class="container">
+	<div class="row information">
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm ">
+					Nome:
+				</label>
+				<div class="col-sm">
+					<input type="text" name="name">
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Jogador:
+				</label>
+				<div class="col-sm">
+					<input type="text" name="player">
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Crônica:
+				</label>
+				<div class="col-sm">
+					<input type="text" name="chronicle">
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm">
+					Natureza:
+				</label>
+				<div class="col-sm">
+					<select>
+						<option value="1">Bon Vivant</option>
+						<option value="2">Solitária</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Comportamento:
+				</label>
+				<div class="col-sm">
+					<select>
+						<option value="1">Bon Vivant</option>
+						<option value="2">Solitário</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Clã:
+				</label>
+				<div class="col-sm">
+					<select>
+						<option>Brujah</option>
+						<option>Gangrel</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm">
+					Geração:
+				</label>
+				<div class="col-sm" id="generation">
+					13
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Refúgio:
+				</label>
+				<div class="col-sm">
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Conceito:
+				</label>
+				<div class="col-sm">
+				</div>
+			</div>
+		</div>
+	</div><!--informações -->
+	<div class="row info" id="attributes_info">
+		<div>
+			Você possui 7, 5 e 3 pontos para cada coluna de atributos. Você pode gastá-los em qualquer ordem (como 5 em Físicos, 3 em Mentais e 7 em Sociais, por exemplo)
+		</div>
+	</div>
+	<div class="row" id="attributes" onmouseenter="show(this)" onmouseleave="hide(this)">
+		<div class="col-sm-4 att-name">
+			Físicos
+		</div>
+		<div class="col-sm-4 att-name">
+			Sociais
+		</div>
+		<div class="col-sm-4 att-name">
+			Mentais
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm">
+					Força
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle"></i>
+					<i class="fa fa-circle-o" id="f-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="f-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="f-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="f-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Destreza
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="d-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="d-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="d-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="d-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Vigor
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="v-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="v-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="v-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="v-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm">
+					Carisma
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="c-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="c-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="c-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="c-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Manipulação
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="m-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="m-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="m-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="m-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Aparência
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="a-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="a-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="a-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="a-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="row">
+				<label class="col-sm">
+					Percepção
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="p-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="p-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="p-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="p-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Inteligência
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="i-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="i-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="i-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="i-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+			<div class="row">
+				<label class="col-sm">
+					Raciocínio
+				</label>
+				<div class="col-sm points">
+					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle-o" id="r-2" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="r-3" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="r-4" onclick="points(this)" ></i>
+					<i class="fa fa-circle-o" id="r-5" onclick="points(this)" ></i>
+				</div>
+			</div>
+		</div>
+		
+			
+		
+	</div><!-- atributos -->
+</div>
+
+</form>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script>
+	function points(obj){
+		let id = $(obj).attr("id");
+		let data = id.split("-");
+		let attr = ["f", "d", "v", "c", "a", "m", "r", "i", "p"];
+		for(let count = 0; count<attr.length; count++){
+			if(data[0].localeCompare(attr[count]) == 0){
+				let i = 2;
+				for( ; i <= parseInt(data[1]); i++){
+					obj = "#"+data[0]+"-"+ i;
+					console.log(obj);
+					if($(obj).hasClass("fa-circle-o")){
+						$(obj).removeClass("fa-circle-o");
+					}
+					if( !($(obj).hasClass("fa-circle") ) ){
+						$(obj).addClass("fa-circle");
+					}
+				}
+				for( ; i<= 5; i++){
+					obj = "#"+data[0]+"-"+i;
+					if($(obj).hasClass("fa-circle")){
+						$(obj).removeClass("fa-circle");
+					}
+					if( !($(obj).hasClass("fa-circle-o")) ){
+						$(obj).addClass("fa-circle-o");
+					}
+				}
+			}
+		}
+	}
+
+	function show(obj){
+		obj = "#"+$(obj).attr("id") + "_info";
+		$(obj).css("display", "block");
+	}
+
+	function hide(obj){
+		obj = "#"+$(obj).attr("id") + "_info";
+		$(obj).css("display", "none");
+	}
+
+
+</script>
+
+</body>
+</html>
