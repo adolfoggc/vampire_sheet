@@ -10,6 +10,8 @@
 </head>
 <body>
 <style>
+
+	/* estilo geral */
 	body {
 		font-family: 'Girassol', cursive;
 		vertical-align: middle;
@@ -21,6 +23,8 @@
 	.att-name {
 		margin: auto;
 		text-align: center;
+		margin: 20px 0;
+		font-weight: bold;
 	}
 
 	.points:hover {
@@ -32,6 +36,46 @@
 		text-align: center;
 		padding-top: 5px;
 		color: red;
+	}
+
+	.points-col {
+		padding: 0 20px;
+	}
+
+
+	/* estilo tela pequena */
+	@media only screen and (max-width: 767px){
+		body {
+			text-align: center;
+		}
+
+		.points-col {
+			border-bottom: 1px solid #000;
+			padding-bottom: 20px;
+		}
+
+		select {
+		}
+	}
+	/* estilo tela grande */
+	@media only screen and (min-width: 768px){
+		select {
+			float: right;
+		}
+
+		#generation {
+			text-align: right;
+		}
+
+		.points{
+			text-align: right;
+		}
+		.points-col {
+			border-left: 1px solid #000;
+			border-right: 1px solid #000;
+			margin-bottom: 10px;
+		}
+
 	}
 </style>
 <form>
@@ -60,7 +104,7 @@
 					Crônica:
 				</label>
 				<div class="col-sm">
-					<input type="text" name="chronicle">
+					<input type="text" name="chronicle" id="-1" onclick="points(this)">
 				</div>
 			</div>
 		</div>
@@ -71,8 +115,35 @@
 				</label>
 				<div class="col-sm">
 					<select>
-						<option value="1">Bon Vivant</option>
-						<option value="2">Solitária</option>
+						<option value="1">Arquiteta</option>
+						<option value="2">Autocrata</option>
+						<option value="3">Bon Vivant</option>
+						<option value="4">Caçadora de Emoções</option>
+						<option value="5">Celebrante</option>
+						<option value="6">Competidora</option>
+						<option value="7">Conformista</option>
+						<option value="8">Criança</option>
+						<option value="9">Diretora</option>
+						<option value="10">Esperta</option>
+						<option value="11">Excêntrica</option>
+						<option value="12">Fanática</option>
+						<option value="13">Filantropa</option>
+						<option value="14">Galante</option>
+						<option value="15">Gozadora</option>
+						<option value="16">Juiza</option>
+						<option value="17">Malandra</option>
+						<option value="18">Mártir</option>
+						<option value="19">Masoquista</option>
+						<option value="20">Monstra</option>
+						<option value="21">Pedagoga</option>
+						<option value="22">Penitente</option>
+						<option value="23">Perfeccionista</option>
+						<option value="24">Ranzinza</option>
+						<option value="25">Rebelde</option>
+						<option value="26">Sobrevivente</option>
+						<option value="27">Solitária</option>
+						<option value="28">Tradicionalista</option>
+						<option value="29">Valentona</option>
 					</select>
 				</div>
 			</div>
@@ -82,8 +153,35 @@
 				</label>
 				<div class="col-sm">
 					<select>
-						<option value="1">Bon Vivant</option>
-						<option value="2">Solitário</option>
+						<option value="1">Arquiteto</option>
+						<option value="2">Autocrata</option>
+						<option value="3">Bon Vivant</option>
+						<option value="4">Caçador de Emoções</option>
+						<option value="5">Celebrante</option>
+						<option value="6">Competidor</option>
+						<option value="7">Conformista</option>
+						<option value="8">Criança</option>
+						<option value="9">Diretor</option>
+						<option value="10">Esperto</option>
+						<option value="11">Excêntrico</option>
+						<option value="12">Fanático</option>
+						<option value="13">Filantropo</option>
+						<option value="14">Galante</option>
+						<option value="15">Gozador</option>
+						<option value="16">Juiz</option>
+						<option value="17">Malandro</option>
+						<option value="18">Mártir</option>
+						<option value="19">Masoquista</option>
+						<option value="20">Monstro</option>
+						<option value="21">Pedagogo</option>
+						<option value="22">Penitente</option>
+						<option value="23">Perfeccionista</option>
+						<option value="24">Ranzinza</option>
+						<option value="25">Rebelde</option>
+						<option value="26">Sobrevivente</option>
+						<option value="27">Solitário</option>
+						<option value="28">Tradicionalista</option>
+						<option value="29">Valentão</option>
 					</select>
 				</div>
 			</div>
@@ -93,8 +191,13 @@
 				</label>
 				<div class="col-sm">
 					<select>
-						<option>Brujah</option>
-						<option>Gangrel</option>
+						<option value="">Brujah</option>
+						<option value="">Gangrel</option>
+						<option value="">Malkavian</option>
+						<option value="">Nosferatu</option>
+						<option value="">Toreador</option>
+						<option value="">Tremere</option>
+						<option value="">Ventrue</option>
 					</select>
 				</div>
 			</div>
@@ -113,6 +216,7 @@
 					Refúgio:
 				</label>
 				<div class="col-sm">
+					<input type="text" name="">
 				</div>
 			</div>
 			<div class="row">
@@ -120,6 +224,7 @@
 					Conceito:
 				</label>
 				<div class="col-sm">
+					<input type="text" name="">
 				</div>
 			</div>
 		</div>
@@ -130,22 +235,16 @@
 		</div>
 	</div>
 	<div class="row" id="attributes" onmouseenter="show(this)" onmouseleave="hide(this)">
-		<div class="col-sm-4 att-name">
-			Físicos
-		</div>
-		<div class="col-sm-4 att-name">
-			Sociais
-		</div>
-		<div class="col-sm-4 att-name">
-			Mentais
-		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4 points-col">
+			<div class="col-sm-12 att-name">
+				Físicos
+			</div>
 			<div class="row">
 				<label class="col-sm">
 					Força
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle"></i>
+					<i class="fa fa-circle" id="f-1" onclick="points(this)"></i>
 					<i class="fa fa-circle-o" id="f-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="f-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="f-4" onclick="points(this)" ></i>
@@ -157,7 +256,7 @@
 					Destreza
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="d-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="d-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="d-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="d-4" onclick="points(this)" ></i>
@@ -169,22 +268,24 @@
 					Vigor
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="v-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="v-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="v-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="v-4" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="v-5" onclick="points(this)" ></i>
 				</div>
 			</div>
-
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4 points-col">
+			<div class="col-sm-12 att-name">
+				Sociais
+			</div>
 			<div class="row">
 				<label class="col-sm">
 					Carisma
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="c-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="c-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="c-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="c-4" onclick="points(this)" ></i>
@@ -196,7 +297,7 @@
 					Manipulação
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="m-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="m-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="m-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="m-4" onclick="points(this)" ></i>
@@ -208,7 +309,7 @@
 					Aparência
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="a-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="a-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="a-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="a-4" onclick="points(this)" ></i>
@@ -216,13 +317,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-4">
+		<div class="col-sm-4 points-col">
+			<div class="col-sm-12 att-name">
+				Mentais
+			</div>
 			<div class="row">
 				<label class="col-sm">
 					Percepção
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="p-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="p-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="p-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="p-4" onclick="points(this)" ></i>
@@ -234,7 +338,7 @@
 					Inteligência
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="i-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="i-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="i-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="i-4" onclick="points(this)" ></i>
@@ -246,7 +350,7 @@
 					Raciocínio
 				</label>
 				<div class="col-sm points">
-					<i class="fa fa-circle" ></i>
+					<i class="fa fa-circle" id="r-1" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="r-2" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="r-3" onclick="points(this)" ></i>
 					<i class="fa fa-circle-o" id="r-4" onclick="points(this)" ></i>
@@ -275,7 +379,6 @@
 				let i = 2;
 				for( ; i <= parseInt(data[1]); i++){
 					obj = "#"+data[0]+"-"+ i;
-					console.log(obj);
 					if($(obj).hasClass("fa-circle-o")){
 						$(obj).removeClass("fa-circle-o");
 					}
